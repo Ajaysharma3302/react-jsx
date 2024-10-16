@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSX and Babel</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      function MyComponent() {
+        return <p>Seize the day</p>;
+      }
+      function DynamicComponent() {
+        const dynamicParagraph = "this is dynamic paragraph 1";
+        return (
+          <div>
+            <p>{dynamicParagraph}</p>
+          </div>
+        );
+      }
+      function ConditionalComponent() {
+        // conditional rendering work on boolean value and help in UI hide some content through conditional rendering 
+        const isCondition = false;
+        return isCondition ? (
+          <p>This is paragraph show when condition is true</p>
+        ) : (
+          <p>this paragraph shown when condition is false</p>
+        );
+      }
+      let root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(
+        <div>
+          <MyComponent />
+          <DynamicComponent />
+          <ConditionalComponent />
+        </div>
+      );
+    </script>
+  </body>
+</html>
